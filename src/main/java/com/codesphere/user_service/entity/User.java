@@ -1,6 +1,7 @@
 package com.codesphere.user_service.entity;
 
-import com.codesphere.user_service.dto.UserDto;
+import com.codesphere.user_service.commons.enums.Role;
+import com.codesphere.user_service.dto.UserDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,9 +19,9 @@ public class User {
     @Column(unique = true)
     private String email;
     private String password;
-    private String role;
+    private Role role;
 
-    public UserDto toDto(){
-        return new UserDto(this.id, this.name, this.email, this.password, this.role);
+    public UserDTO toDto(){
+        return new UserDTO(this.id, this.name, this.email, this.password, this.role);
     }
 }
